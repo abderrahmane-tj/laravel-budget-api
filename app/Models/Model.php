@@ -8,6 +8,7 @@ use \Illuminate\Database\Eloquent\Model as BaseModel;
 /**
  * Base model for all app models
  * @package App\Models
+ * @mixin \Eloquent
  */
 class Model extends BaseModel
 {
