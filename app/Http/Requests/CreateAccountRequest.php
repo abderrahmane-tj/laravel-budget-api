@@ -13,8 +13,8 @@ class CreateAccountRequest extends ApiRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'balance' => 'sometimes|array',
+            'name' => 'required',
+            'balance' => 'required|numeric',
         ];
     }
 }
