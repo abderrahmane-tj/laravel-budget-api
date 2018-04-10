@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateAccountRequest;
+use App\Http\Requests\UpdateAccountRequest;
 use App\Models\Transactions\Account;
 use Illuminate\Http\Response;
 
@@ -15,12 +16,17 @@ class AccountsController extends Controller
 
     public function store(CreateAccountRequest $request)
     {
-        $account = Account::create($request->all());
-        return response()->json($account, Response::HTTP_CREATED);
+        return response()->json(
+          Account::create($request->all()),
+          Response::HTTP_CREATED
+        );
     }
 
-    public function update(Account $account)
+    public function update(Account $account, UpdateAccountRequest $request)
     {
-
+        return response()->json(
+          tap($account)->update($request->all()),
+          Response::HTTP_ACCEPTED
+        );
     }
 }

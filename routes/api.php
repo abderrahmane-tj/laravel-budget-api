@@ -7,4 +7,5 @@ Route::middleware(['accept-json'])->group(function (){
 
     Route::get('accounts', 'AccountsController@index');
     Route::post('accounts', 'AccountsController@store');
+    Route::put('accounts/{account}', 'AccountsController@update');
 });
