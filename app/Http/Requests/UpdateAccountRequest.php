@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class CreateAccountRequest extends ApiRequest
+class UpdateAccountRequest extends ApiRequest
 {
 
     /**
@@ -13,10 +13,10 @@ class CreateAccountRequest extends ApiRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'balance' => 'required|numeric',
-            'off_budget' => 'boolean',
-            'type' => 'numeric'
+          'name' => 'filled',
+          'balance' => 'sometimes|numeric|nullable',
+          'off_budget' => 'boolean',
+          'type' => 'numeric'
         ];
     }
 }

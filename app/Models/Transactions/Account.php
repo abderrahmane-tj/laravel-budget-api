@@ -23,7 +23,9 @@ class Account extends Model
     ];
 
     protected $casts = [
-        'off_budget' => 'boolean'
+        'off_budget' => 'boolean',
+        'balance' => 'float',
+        'type' => 'integer',
     ];
 
     /**

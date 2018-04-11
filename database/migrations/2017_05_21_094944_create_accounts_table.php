@@ -17,8 +17,8 @@ class CreateAccountsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->float('balance')->unsigned();
-            $table->tinyInteger('type')->unsigned()->nullable();
-            $table->boolean('off_budget')->unsigned()->nullable();
+            $table->tinyInteger('type')->unsigned()->nullable()->default(0);
+            $table->boolean('off_budget')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });
     }
