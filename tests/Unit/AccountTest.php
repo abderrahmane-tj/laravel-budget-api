@@ -2,14 +2,14 @@
 
 namespace Tests\Unit;
 
-use App\Models\Transactions\Account;
+use App\Models\Account;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class AccountTest extends TestCase
 {
-    use DatabaseMigrations;
+    use RefreshDatabase;
 
     /**
      * @var $account Account

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateAccountRequest;
 use App\Http\Requests\UpdateAccountRequest;
-use App\Models\Transactions\Account;
+use App\Models\Account;
 use Illuminate\Http\Response;
 
 class AccountsController extends Controller
@@ -24,9 +24,6 @@ class AccountsController extends Controller
 
     public function update(Account $account, UpdateAccountRequest $request)
     {
-        return response()->json(
-          tap($account)->update($request->all()),
-          Response::HTTP_ACCEPTED
-        );
+        return tap($account)->update($request->all());
     }
 }

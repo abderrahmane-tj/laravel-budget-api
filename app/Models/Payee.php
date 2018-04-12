@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models\Transactions;
+namespace App\Models;
 
-use App\Models\Model;
 
 /**
  * Transaction payee
- * @package App\Models\Transactions
+ * @package App\Models
  * @property string name
  */
 class Payee extends Model

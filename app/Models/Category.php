@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Transactions;
+namespace App\Models;
 
-use App\Models\Model;
 use Illuminate\Support\Collection;
 
 /**
  * Category Model
- * @package App\Models\Transactions
+ * @package App\Models
  * @property string $name
  * @property string $note
  * @property integer $position

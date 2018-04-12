@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Transactions;
+namespace App\Models;
 
-use App\Models\Model;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Account Model
- * @package App\Models\Transactions
+ * @package App\Models
  * @property string name
  * @property integer type
  * @property boolean off_budget
