@@ -16,9 +16,9 @@ class CreateAccountsTable extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->tinyInteger('type')->unsigned();
-            $table->boolean('off_budget')->unsigned();
             $table->float('balance')->unsigned();
+            $table->tinyInteger('type')->unsigned()->nullable()->default(0);
+            $table->boolean('off_budget')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });
     }

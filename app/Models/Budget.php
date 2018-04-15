@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models\Transactions;
+namespace App\Models;
 
-use App\Models\Model;
 
 /**
  * Monthly budget model
- * @package App\Models\Transactions
+ * @package App\Models
  * @property string name
  * @property string note
  * @property float amount

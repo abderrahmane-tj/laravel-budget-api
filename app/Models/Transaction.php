@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Transactions;
+namespace App\Models;
 
-use App\Models\Model;
 use Carbon\Carbon;
 
 /**
  * Transaction model
- * @package App\Models\Transactions
+ * @package App\Models
  * @property Carbon $done_at
  * @property integer $payee_id
  * @property string $memo
