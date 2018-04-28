@@ -10,4 +10,7 @@ Route::middleware(['accept-json'])->group(function (){
     Route::put('accounts/{account}', 'AccountsController@update');
 
     Route::get('accounts/{account}/transactions', 'TransactionsController@index');
+
+
+    Route::get('categories', 'CategoriesController@index');
 });
