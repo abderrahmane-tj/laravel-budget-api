@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
 use Tests\TestCase;
 
-class ReadAccountTest extends TestCase
+class AccountsTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -35,12 +35,11 @@ class ReadAccountTest extends TestCase
     /** @test */
     public function it_returns_the_list_of_created_accounts()
     {
-        $this->account->save();
+        $this->create_an_account();
 
         $this->get('/api/accounts')
             ->assertJson([
                 [
-                    "id" => $this->account->id,
                     "name" => $this->account->name,
                     "balance" => $this->account->balance,
                     "type" => $this->account->type,
@@ -53,13 +52,21 @@ class ReadAccountTest extends TestCase
     public function it_creates_an_account_and_an_init_transaction()
     {
         $this
-            ->post('/api/accounts', $this->account->toArray())
+            ->create_an_account()
             ->assertStatus(Response::HTTP_CREATED)
             ->assertJson([
                 "name" => $this->account->name,
                 "balance" => $this->account->balance,
                 "type" => $this->account->type,
                 "off_budget" => $this->account->off_budget,
+            ]);
+
+        $this
+            ->get('/api/accounts/'. Account::first()->id.'/transactions')
+            ->assertJson([
+                [
+                    'amount' => $this->account->balance
+                ]
             ]);
     }
 
@@ -72,6 +79,11 @@ class ReadAccountTest extends TestCase
                 ['balance' => 'invalid value']
             ))
             ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
+
+    protected function create_an_account()
+    {
+        return $this->post('/api/accounts', $this->account->toArray());
     }
 
 }
