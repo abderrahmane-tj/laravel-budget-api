@@ -18,10 +18,10 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('note')->nullable();
             $table->smallInteger('position')->default(0)->nullable();
-            $table->integer('category_id')->unsigned()->nullable();
+            $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('parent_id')->references('id')->on('categories');
         });
     }
 

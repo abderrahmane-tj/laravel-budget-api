@@ -33,7 +33,7 @@ class AccountsTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_the_list_of_created_accounts()
+    public function it_lists_the_created_accounts()
     {
         $this->create_an_account();
 

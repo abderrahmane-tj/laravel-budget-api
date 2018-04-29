@@ -31,4 +31,25 @@ class CategoriesTest extends TestCase {
             ->assertStatus(200)
             ->assertJson([]);
     }
+
+    /** @test */
+    public function it_lists_the_created_categories()
+    {
+        $this->withoutExceptionHandling();
+        $this->create_a_category();
+
+        $this->get('/api/categories')
+            ->assertJson([
+                [
+                    "name" => $this->cateogry->name,
+                    "note" => $this->cateogry->note,
+                    "parent_id" => $this->cateogry->parent_id,
+                ]
+            ]);
+    }
+
+    protected function create_a_category()
+    {
+        return $this->post('/api/categories', $this->cateogry->toArray());
+    }
 }

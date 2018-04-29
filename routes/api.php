@@ -13,4 +13,5 @@ Route::middleware(['accept-json'])->group(function (){
 
 
     Route::get('categories', 'CategoriesController@index');
+    Route::post('categories', 'CategoriesController@store');
 });
